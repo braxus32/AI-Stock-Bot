@@ -14,6 +14,7 @@
 import sys
 import argparse
 import math
+import random
 
 def splitData(data, trainData, testData, ratio):
     """
@@ -27,7 +28,12 @@ def splitData(data, trainData, testData, ratio):
             There is no grading script for this function, because different group may select different dataset depending on their course project, but generally you should make sure that you code can divide the dataset correctly, since you may use it for the course project
     """
     # your code here
-    pass
+    with open(data,"rb") as file:
+            data = file.read().split("\n")
+        trainData = data[:70]
+        testData = data[30:]
+        ratio = ((trainData + testData) / 2)
+
 
 def splitDataRandom(data, trainData, testData, ratio):
     """
@@ -41,7 +47,11 @@ def splitDataRandom(data, trainData, testData, ratio):
             Almost same as splitData, the only difference is this function will randomly shuffle the input data, so you will randomly select data and store it in the trainData
     """
     # your code here
-    pass
+    with open(data,"rb") as file:
+            data = file.read().split("\n")
+        random.shuffle(data)
+        trainData = data[:70]
+        testData = data[30:]
 
 def main():
     options = parser.parse_args()
