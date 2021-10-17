@@ -68,7 +68,14 @@ def showHelper():
     Similar to Lab 2, please update the showHelper function to show users how to use your code
     """
     parser.print_help(sys.stderr)
-    # your code here
+    print("Please provide input augument.\n",
+            "'T' for Training Mode.\n",
+            "'P' for Prediction Mode.\n",
+            "'E' for Evaluation Mode.\n",
+            "Here are examples:")
+    print("python " + sys.argv[0] + " --mode T --input TrainingData.txt --output NBModel.txt")
+    print("python " + sys.argv[0] + " --mode P --input TestDataNoLabel.txt --modelPath NBModel.txt --output TestDataLabelPrediction.txt")
+    print("python " + sys.argv[0] + " --mode E --input TestDataLabelPrediction.txt --trueLabel LabelForTest.txt --output Performance.txt")
 
     sys.exit(0)
 
