@@ -60,8 +60,24 @@ def main():
     """
     similar to Lab 2, please add your testing code here
     """
-    # your code here
-    pass
+    if mode == "S":
+      data = options.data 
+      trainData = options.trainData
+      testData = options.testData
+      ratio = options.ratio
+    if data == '' or trainData == '' or testData == '' or ratio == '' :
+      showHelper()
+    splitData(data, trainData, testData, ratio) 
+    
+    if mode == "R":
+      data = options.data 
+      trainData = options.trainData
+      testData = options.testData
+      ratio = options.ratio
+    if data == '' or trainData == '' or testData == '' or ratio == '' :
+      showHelper()
+    splitDataRandom(data, trainData, testData, ratio)
+    
 
 def showHelper():
     """
