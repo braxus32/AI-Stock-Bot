@@ -85,13 +85,11 @@ def showHelper():
     """
     parser.print_help(sys.stderr)
     print("Please provide input augument.\n",
-            "'T' for Training Mode.\n",
-            "'P' for Prediction Mode.\n",
-            "'E' for Evaluation Mode.\n",
+            "'S' for Split Mode.\n",
+            "'R' for Random Split Mode.\n",
             "Here are examples:")
-    print("python " + sys.argv[0] + " --mode T --input TrainingData.txt --output NBModel.txt")
-    print("python " + sys.argv[0] + " --mode P --input TestDataNoLabel.txt --modelPath NBModel.txt --output TestDataLabelPrediction.txt")
-    print("python " + sys.argv[0] + " --mode E --input TestDataLabelPrediction.txt --trueLabel LabelForTest.txt --output Performance.txt")
+    print("python " + sys.argv[0] + " --mode S --data data.txt --trainData trainData.txt --testData testData.txt --ratio 0.5")
+    print("python " + sys.argv[0] + " --mode R --data data.txt --trainData trainData.txt --testData testData.txt --ratio 0.5")
 
     sys.exit(0)
 
