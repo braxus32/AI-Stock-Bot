@@ -44,21 +44,26 @@ def DTpredict(data, model, prediction):
     ...
     """
     # implement your code here
-    try :
-        self.predictions =  []
-        s =  "Python-inputs"
-        while (s.hasNext()):
-            data =  []
-            input()
-            # consume -1
-            i = 0
-            while (i < len(self.attArr)) :
-                data.append(input())    i += 1
-                pred = self.traceTree(self.root, data)
-                self.predictions.append(pred)
-        except ValueError:except:
-            print("Error reading test file: " + str(e))
-            sys.exit(1)
+    try:
+        predictions = []
+        with open(model,"r") as file1, open("TestDataNoLabel.txt") as file2:
+            for x in range(len(model)):
+                data = []
+                for y in range(len(attArr)):
+                    data.append(file1.readlines())
+                pred = traceTree(root.data)
+                predictions.append(pred)
+
+def traceTree(node, data):
+    if(node.returnVal is not None):
+        return node.returnVal
+    att = node.attribute
+    val = data.get(attArr.index(att))
+    t = node.children.get(val)
+    return traceTree(t,data)
+
+
+
 
 
 def EvaDT(predictionLabel, realLabel, output):
