@@ -53,9 +53,9 @@ def DTpredict(data, model, prediction):
                     data.append(file1.readlines())
                 pred = traceTree(root.data)
                 predictions.append(pred)
-        except:
-            print("Error reading test file: " + model)
-            sys.exit(1)
+    except:
+        print("Error reading test file: " + model)
+        sys.exit(1)
 
 def traceTree(node, data):
     if(node.returnVal is not None):
